@@ -1,0 +1,18 @@
+.movie-cards {
+  margin: 50px 0;
+}
+
+.movie-cards h2 {
+  margin-bottom: 10px;
+}
+
+.popular-movies {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.popular-movies .movie {
+  cursor: pointer;
+  border-radius: 4px;
+}
