@@ -1,0 +1,108 @@
+.login {
+  padding: 30px 40px;
+  height: 100vh;
+  position: relative;
+  background-image: url("/background_banner.jpg");
+}
+
+.login .logo {
+  width: 150px;
+  height: 50px;
+}
+
+.login-form {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: 450px;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 50px 60px;
+  border-radius: 5px;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input {
+  border: 1px solid gray;
+  padding: 20px;
+  background-color: transparent;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+form button {
+  padding: 15px 0;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#signin-btn {
+  background-color: red;
+}
+
+#btn-gray {
+  background-color: rgba(145, 141, 141, 0.5);
+}
+
+form .selection-text {
+  color: rgb(155, 152, 152);
+  text-align: center;
+}
+
+.help {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1.1rem;
+}
+
+#forget {
+  text-align: center;
+}
+
+form a {
+  color: #fff;
+}
+
+.remember input {
+  margin-right: 10px;
+  height: 18px;
+  width: 18px;
+}
+
+.signup-text p {
+  color: lightgray;
+}
+
+.login-form input::placeholder {
+  transition: all 0.3s;
+}
+
+.login-form input:focus::placeholder {
+  font-size: 0.8rem;
+  transform: translateY(-15px);
+}
+
+.login-form input:focus {
+  border: 2px solid #fff;
+}
+
+.signup-text span {
+  cursor: pointer;
+  text-decoration: underline;
+}
