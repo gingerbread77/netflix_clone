@@ -24,7 +24,7 @@ const MovieCards = ({ sectionName, section }) => {
 
   return (
     <div className="movie-cards">
-      <h2>{sectionName}</h2>
+      <h2>{sectionName?sectionName:"Popular on Netflix"}</h2>
       <div className="popular-movies">
         {movieData.map((movie, index) => {
           return (
