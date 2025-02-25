@@ -8,11 +8,22 @@
 
 .popular-movies {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;
 }
 
+
 .popular-movies .movie {
   cursor: pointer;
+  width: 250px;
+  flex: 0 0 auto;
   border-radius: 4px;
+  text-align: center; 
+}
+
+ .popular-movies .movie img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 4px;
+  object-fit: contain; 
 }

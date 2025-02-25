@@ -32,16 +32,16 @@ const Home = () => {
               <span>More info</span>
             </button>
           </div>
-          <MovieCards section={"Popular on Netflix"} />
+          <MovieCards/>
         </div>
       </div>
       <div className="more-movie">
-        <MovieCards section={"Blockbuster Movies"} />
-        <MovieCards section={"Only on Netflix"} />
-        <MovieCards section={"Upcoming"} />
-        <MovieCards section={"Top Pics for you"} />
+        <MovieCards sectionName={"Blockbuster Movies"} section={"top_rated"} />
+        <MovieCards sectionName={"Only on Netflix"} section={"popular"}/>
+        <MovieCards sectionName={"Upcoming"} section={"upcoming"}/>
+        <MovieCards sectionName={"Top Pics for you"} section={"now_playing"}/>
       </div>
-    <Footer/>
+      <Footer />
     </div>
   );
 };
