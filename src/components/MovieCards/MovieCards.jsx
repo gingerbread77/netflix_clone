@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MovieCards.css";
+import { Link } from "react-router-dom";
 
 const MovieCards = ({ sectionName, section }) => {
   const [movieData, setMovieData] = useState([]);
@@ -16,7 +17,11 @@ const MovieCards = ({ sectionName, section }) => {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${section ? section : "now_playing"}?language=en-US&page=1`, options)
+      `https://api.themoviedb.org/3/movie/${
+        section ? section : "now_playing"
+      }?language=en-US&page=1`,
+      options
+    )
       .then((res) => res.json())
       .then((res) => setMovieData(res.results))
       .catch((err) => console.error(err));
@@ -24,17 +29,17 @@ const MovieCards = ({ sectionName, section }) => {
 
   return (
     <div className="movie-cards">
-      <h2>{sectionName?sectionName:"Popular on Netflix"}</h2>
+      <h2>{sectionName ? sectionName : "Popular on Netflix"}</h2>
       <div className="popular-movies">
         {movieData.map((movie, index) => {
           return (
-            <div className="movie" key={index}>
+            <Link to={`/player/${movie.id}`} className="movie" key={index}>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                 alt="movie image"
                 title={movie.original_title}
               />
-            </div>
+            </Link>
           );
         })}
       </div>
