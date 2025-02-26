@@ -77,3 +77,7 @@
 .profile:hover .dropdown {
   display: block;
 }
+
+.navbar.dark{
+  background: rgba(0,0,0,1);
+}
