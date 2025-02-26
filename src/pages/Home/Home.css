@@ -1,6 +1,5 @@
 .hero-banner {
   position: relative;
-  min-height: 900px;
 }
 
 .banner-img {
@@ -71,4 +70,56 @@
 
 .more-movie {
   padding-left: 6%;
+}
+
+@media (max-width:1024px){
+  .hero-caption .movie-cards{
+    display:none;
+  }
+
+  .hero-buttons{
+    margin-bottom:30px;
+  }
+}
+
+@media (max-width:800px){
+  .hero-caption{
+    padding-left:4%;
+  }
+
+  .caption-img{
+    margin-bottom:10px;
+    width:40%;
+  }
+
+  .hero-caption p{
+    font-size:12px;
+    margin-bottom:10px;
+  }
+
+  .hero-buttons .icons{
+    width:20px;
+    height: 20px;
+  }
+
+  .more-movie{
+    padding-left:4%;
+  }
+}
+
+@media (max-width:500px){
+  .caption-img{
+    display:none;
+  }
+
+  .hero-buttons .icons{
+    width: 15px;
+    height: 15px;
+  }
+
+  button{
+    padding:4px 10px;
+    gap:5px;
+    font-size:10px;
+  }
 }

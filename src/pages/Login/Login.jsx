@@ -1,33 +1,55 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/logo.png";
-import { login, signup, logout } from "../../firebase";
+import { login, signup } from "../../firebase";
+import netflix_spinner from "../../assets/netflix_spinner.gif";
 
 const Login = () => {
-  const [authstate, setAuthState] = useState('login');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [authstate, setAuthState] = useState("login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const user_authentication = async (e) => {
     e.preventDefault();
-    if(authstate === 'signup'){
-      await signup(email,password);
+    setLoading(true);
+    if (authstate === "signup") {
+      await signup(email, password);
     } else {
-      await login(email,password);
+      await login(email, password);
     }
-  }
-  return (
+    setLoading(false);
+  };
+  return loading ? (
+    <div className="login-spinner">
+      <img src={netflix_spinner} alt="loading gif" />
+    </div>
+  ) : (
     <div className="login">
       <img className="logo" src={logo} alt="netflix logo" />
       <div className="login-form">
-        <h1>{authstate === 'signup' ? "Sign Up" : "Sign in"}</h1>
+        <h1>{authstate === "signup" ? "Sign Up" : "Sign in"}</h1>
         <form>
-          <input type="text" placeholder="Email or mobile number" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
-          <input type="password" placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+          <input
+            type="text"
+            placeholder="Please enter your email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
           <button onClick={user_authentication} type="submit" id="signin-btn">
-            {authstate === 'signup' ? "Sign Up" : "Sign In"}
+            {authstate === "signup" ? "Sign Up" : "Sign In"}
           </button>
-          {authstate === 'login' && (
+          {authstate === "login" && (
             <>
               <p className="selection-text">OR</p>
               <button type="button" id="btn-gray">
@@ -44,12 +66,12 @@ const Login = () => {
               <label htmlFor="remember">Remember me</label>
             </div>
             <div className="signup-text">
-              {authstate === 'signup' ? (
+              {authstate === "signup" ? (
                 <p>
                   Already have an account?
                   <span
                     onClick={() => {
-                      setAuthState('login');
+                      setAuthState("login");
                     }}
                   >
                     Sign in now.
@@ -60,7 +82,7 @@ const Login = () => {
                   New to Netflix?
                   <span
                     onClick={() => {
-                      setAuthState('signup');
+                      setAuthState("signup");
                     }}
                   >
                     Sign up now.

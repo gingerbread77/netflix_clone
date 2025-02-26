@@ -27,3 +27,29 @@
   border-radius: 4px;
   object-fit: contain; 
 }
+
+@media(max-width:800px){
+  .movie-cards{
+    margin-top:20px;
+    margin-bottom:0;
+  }
+
+  .movie-cards h2{
+    font-size:20px;
+  }
+
+  .popular-movies .movie{
+    width: 200px;
+  }
+}
+
+@media(max-width:500px){
+
+  .movie-cards h2{
+    font-size:15px;
+  }
+
+  .popular-movies .movie{
+    width: 150px;
+  }
+}

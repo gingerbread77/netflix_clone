@@ -81,3 +81,27 @@
 .navbar.dark{
   background: rgba(0,0,0,1);
 }
+
+@media(max-width:1024px){
+  .navbar {
+    padding:20px 4%;
+  }
+
+  .left ul{
+    display:none;
+  }
+  
+  .navbar img{
+    height: 25px;
+  }
+}
+
+@media(max-width:500px){
+  .navbar img{
+    height: 20px;
+  }
+
+  .right{
+    gap:10px;
+  }
+}
