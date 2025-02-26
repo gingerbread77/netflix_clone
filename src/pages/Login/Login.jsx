@@ -1,24 +1,35 @@
 import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../assets/logo.png";
+import { login, signup, logout } from "../../firebase";
 
 const Login = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [authstate, setAuthState] = useState('login');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const user_authentication = async (e) => {
+    e.preventDefault();
+    if(authstate === 'signup'){
+      await signup(email,password);
+    } else {
+      await login(email,password);
+    }
+  }
   return (
     <div className="login">
       <img className="logo" src={logo} alt="netflix logo" />
       <div className="login-form">
-        <h1>{isSignUp ? "Sign Up" : "Sign in"}</h1>
+        <h1>{authstate === 'signup' ? "Sign Up" : "Sign in"}</h1>
         <form>
-          <input type="text" placeholder="Email or mobile number" />
-          <input type="password" placeholder="Password" />
-          <button type="submit" id="signin-btn">
-            {isSignUp ? "Sign Up" : "Sign In"}
+          <input type="text" placeholder="Email or mobile number" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+          <input type="password" placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+          <button onClick={user_authentication} type="submit" id="signin-btn">
+            {authstate === 'signup' ? "Sign Up" : "Sign In"}
           </button>
-          {!isSignUp && (
+          {authstate === 'login' && (
             <>
-              <p class="selection-text">OR</p>
+              <p className="selection-text">OR</p>
               <button type="button" id="btn-gray">
                 Use a sign-in code
               </button>
@@ -33,12 +44,12 @@ const Login = () => {
               <label htmlFor="remember">Remember me</label>
             </div>
             <div className="signup-text">
-              {isSignUp ? (
+              {authstate === 'signup' ? (
                 <p>
                   Already have an account?
                   <span
                     onClick={() => {
-                      setIsSignUp(!isSignUp);
+                      setAuthState('login');
                     }}
                   >
                     Sign in now.
@@ -49,7 +60,7 @@ const Login = () => {
                   New to Netflix?
                   <span
                     onClick={() => {
-                      setIsSignUp(!isSignUp);
+                      setAuthState('signup');
                     }}
                   >
                     Sign up now.

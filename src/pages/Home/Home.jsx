@@ -32,14 +32,14 @@ const Home = () => {
               <span>More info</span>
             </button>
           </div>
-          <MovieCards/>
+          <MovieCards />
         </div>
       </div>
       <div className="more-movie">
         <MovieCards sectionName={"Blockbuster Movies"} section={"top_rated"} />
-        <MovieCards sectionName={"Only on Netflix"} section={"popular"}/>
-        <MovieCards sectionName={"Upcoming"} section={"upcoming"}/>
-        <MovieCards sectionName={"Top Pics for you"} section={"now_playing"}/>
+        <MovieCards sectionName={"Only on Netflix"} section={"popular"} />
+        <MovieCards sectionName={"Upcoming"} section={"upcoming"} />
+        <MovieCards sectionName={"Top Pics for you"} section={"now_playing"} />
       </div>
       <Footer />
     </div>

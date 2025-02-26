@@ -34,12 +34,13 @@
   list-style: none;
 }
 
-.navbar ul li {
+.navbar ul li,
+.right img.icons,
+.right p {
   cursor: pointer;
 }
 
-.navbar .icons {
-  cursor: pointer;
+.right img.icons {
   width: 20px;
 }
 
@@ -63,7 +64,6 @@
   width: max-content;
   padding: 16px 20px;
   background-color: #181717;
-  margin-top: 10px;
   border-radius: 5px;
   display: none;
 }
